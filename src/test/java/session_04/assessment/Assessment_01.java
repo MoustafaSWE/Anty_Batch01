@@ -14,7 +14,7 @@ public class Assessment_01 {
     /*
         TestCase:
             1. Go to URL: https://www.cazoo.co.uk/
-            2. Wait and Click on Accept all Cookies  -- User Explicit Wait
+            2. Wait and Click on Accept all Cookies  -- Use Explicit Wait
             3. Choose make Audi
             4. Choose model A1
             5. Print all result fount

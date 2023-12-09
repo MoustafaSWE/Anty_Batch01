@@ -31,7 +31,7 @@ public class T01_Static_Dropdown {
         driver.navigate().to("https://the-internet.herokuapp.com/dropdown");
 
 
-        // 1- Define webEelement for the list
+        // 1- Define WebElement for the list
 
 
         // 2- Create new object from Select class in selenium
