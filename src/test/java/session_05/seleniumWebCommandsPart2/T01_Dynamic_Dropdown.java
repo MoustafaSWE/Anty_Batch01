@@ -1,10 +1,10 @@
-package session_04.seleniumWebCommands;
+package session_05.seleniumWebCommandsPart2;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
-public class T02_Dynamic_Dropdown {
+public class T01_Dynamic_Dropdown {
 
 //    Static dropdown list:	dropdowns having tagName "Select"
 //    Dynamic dropdown list:	dropdowns having different tagName other than "Select"
