@@ -22,6 +22,36 @@ public class Assessment_01 {
      */
 
     public static void main(String[] args) {
+        WebDriver driver;
+
+        driver = new ChromeDriver();
+
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+      //  1. Go to URL: https://www.cazoo.co.uk/
+
+
+        driver.navigate().to("https://www.cazoo.co.uk/");
+        // 2. Wait and Click on Accept all Cookies  -- Use Explicit Wait
+
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("button[class=\"cui__sc-mqi3p7-0 fuyLT\"]")))).click();
+        // 3. Choose make Audi
+        Select makeDropDownMenu = new Select(driver.findElement(By.name("make")));
+        makeDropDownMenu.selectByValue("audi");
+        // 4. Choose model A1
+        Select modelDropDownMenu = new Select(driver.findElement(By.name("model")));
+        modelDropDownMenu.selectByValue("a1");
+
+        driver.findElement(By.cssSelector("button[data-test-id='buy-form-btn']")).click();
+        // 5.             5. Print all result fount
+
+        for (int i = 1; i < driver.findElements(By.className("vehicle-cardstyles__LinkWrap-sc-1bxv5iu-5")).size() ; i++){
+
+            System.out.println(driver.findElements(By.className("vehicle-cardstyles__LinkWrap-sc-1bxv5iu-5")).get(i).getText());
+        }
+
+        driver.quit();
 
 
     }

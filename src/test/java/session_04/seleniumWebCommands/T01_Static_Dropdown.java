@@ -1,7 +1,9 @@
 package session_04.seleniumWebCommands;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 
 import java.time.Duration;
@@ -14,42 +16,29 @@ public class T01_Static_Dropdown {
 
 
     public static void main(String[] args) {
-
         // 3- Configuration
         WebDriver driver;
-
         driver = new ChromeDriver();
-
         //3.1- Maximize browser
         driver.manage().window().maximize();
-
-        //3.2- Set implicit wait
+        //3. 2- Set implicit wait
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-
         // 4- Navigate to website
+        //driver.navigate().to("https://the-internet.herokuapp.com/dropdown");
         driver.navigate().to("https://the-internet.herokuapp.com/dropdown");
-
-
         // 1- Define WebElement for the list
-
-
         // 2- Create new object from Select class in selenium
-        //you should make sure about this >> import org.openqa.selenium.support.ui.Select;
-
-
+        //you should make sure about this >> import org. openqa.selenium.support.ui.Select;
+        Select selectFromDropDownMenu = new Select(driver.findElement(By.id("dropdown")));
         //3- Select options using 3 methods
         //3.1- SelectByIndex
-
-
-        //3.2- SelectByValue
-        //Note SelectByValue input value is String but SelectByIndex is Integer
-
-
-        //3.3- SelectByVisibleText
-
-
-        driver.quit();
+        selectFromDropDownMenu.selectByIndex(1);
+        //3. 2- SelectByValue
+        //Note SelectByValue input value is String but SelectByIndex is
+        selectFromDropDownMenu.selectByValue("2");
+        //3. 3- SelectByVisibleText
+        selectFromDropDownMenu.selectByVisibleText("option 1");
+         driver.quit();
     }
 
 }

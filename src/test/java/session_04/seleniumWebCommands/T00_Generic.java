@@ -15,8 +15,5 @@ public class T00_Generic {
         driver.findElement(By.cssSelector("a[href='/abtest']")).click();
         String text = driver.findElement(By.cssSelector("div[class='example'] p")).getText();
         System.out.println(text);
-
-
-
     }
 }
