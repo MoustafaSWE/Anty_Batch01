@@ -1,0 +1,17 @@
+Index: src/test/java/session_03/assessment/Assessment_01.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package session_03.assessment;\r\n\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.chrome.ChromeDriver;\r\nimport org.openqa.selenium.support.ui.ExpectedConditions;\r\nimport org.openqa.selenium.support.ui.WebDriverWait;\r\n\r\nimport java.time.Duration;\r\n\r\npublic class Assessment_01 {\r\n\r\n    /*\r\n    Test Case No1 : Validate that user can log in successfully\r\n        1. Open URL: https://www.saucedemo.com/v1/\r\n        2. Enter Valid username: standard_user\r\n        3. Enter Valid Password: secret_sauce\r\n        4. Click On Login\r\n     */\r\n\r\n    public static void main(String[] args) {\r\n        WebDriver driver;\r\n\r\n        driver = new ChromeDriver();\r\n        driver.manage().window().maximize();\r\n        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));\r\n\r\n        // 1. Open URL: https://www.saucedemo.com/v1/\r\n        driver.navigate().to(\"https://www.saucedemo.com/v1/\");\r\n\r\n        // 2. Enter Valid username: standard_user\r\n        driver.findElement(By.id(\"user-name\")).sendKeys(\"standard_user\");\r\n\r\n        // 3. Enter Valid Password: secret_sauce\r\n        driver.findElement(By.id(\"password\")).sendKeys(\"secret_sauce\");\r\n\r\n        // 4. Click On Login\r\n        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));\r\n        wait.until(ExpectedConditions\r\n                .elementToBeClickable( driver\r\n                        .findElement(By.id(\"login-button\"))))\r\n                .click();\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/session_03/assessment/Assessment_01.java b/src/test/java/session_03/assessment/Assessment_01.java
+--- a/src/test/java/session_03/assessment/Assessment_01.java	(revision 9ae4c36add473770b026169d038211361bfbeca1)
++++ b/src/test/java/session_03/assessment/Assessment_01.java	(date 1702386262783)
+@@ -41,5 +41,6 @@
+                         .findElement(By.id("login-button"))))
+                 .click();
+ 
++
+     }
+ }
