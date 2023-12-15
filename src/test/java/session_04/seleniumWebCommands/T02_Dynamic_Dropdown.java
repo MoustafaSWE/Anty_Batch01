@@ -1,7 +1,10 @@
 package session_04.seleniumWebCommands;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
 import java.time.Duration;
 
 public class T02_Dynamic_Dropdown {
@@ -35,10 +38,17 @@ public class T02_Dynamic_Dropdown {
 
         // 2- dynamic dropdown list
         // We couldn't use Select class with dynamic lists, instead we could handle it with findElements() method
-
-
+       /* Select selectFromDropDownMenu = new Select(driver.findElement(By.id("dropdown")));
+        selectFromDropDownMenu.selectByIndex(1);
+        Thread.sleep(3000);
+        selectFromDropDownMenu.selectByValue("2");
+        Thread.sleep(3000);
+        selectFromDropDownMenu.selectByVisibleText("Option 1");
+        Thread.sleep(3000);
         driver.quit();
 
+        */
+driver.findElements(By.xpath(""))
     }
 }
 

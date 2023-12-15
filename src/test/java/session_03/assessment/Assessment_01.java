@@ -25,6 +25,8 @@ public class Assessment_01 {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
+        
+
         // 1. Open URL: https://www.saucedemo.com/v1/
         driver.navigate().to("https://www.saucedemo.com/v1/");
 
