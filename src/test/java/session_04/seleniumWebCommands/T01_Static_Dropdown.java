@@ -1,7 +1,9 @@
 package session_04.seleniumWebCommands;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 
 import java.time.Duration;
@@ -37,19 +39,20 @@ public class T01_Static_Dropdown {
         // 2- Create new object from Select class in selenium
         //you should make sure about this >> import org.openqa.selenium.support.ui.Select;
 
-
+        Select selectFromDropDownMenu = new Select(driver.findElement(By.id("dropdown")));
         //3- Select options using 3 methods
         //3.1- SelectByIndex
 
-
+        selectFromDropDownMenu.selectByIndex(1);
         //3.2- SelectByValue
         //Note SelectByValue input value is String but SelectByIndex is Integer
-
+        selectFromDropDownMenu.selectByValue("2");
 
         //3.3- SelectByVisibleText
 
-
+        selectFromDropDownMenu.selectByVisibleText("option 1");
         driver.quit();
+
     }
 
 }
