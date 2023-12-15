@@ -1,7 +1,10 @@
 package session_04.seleniumWebCommands;
 
+import jdk.jfr.events.ExceptionStatisticsEvent;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 
 import java.time.Duration;
@@ -13,7 +16,7 @@ public class T01_Static_Dropdown {
 //    Don't apply Thread.sleep -> it is for you to see the execution ; remove it once you learn the script's purpose
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         // 3- Configuration
         WebDriver driver;
@@ -33,22 +36,22 @@ public class T01_Static_Dropdown {
 
         // 1- Define WebElement for the list
 
-
+        Select selectdropdownmenue =new Select(driver.findElement(By.id("dropdown")));
         // 2- Create new object from Select class in selenium
         //you should make sure about this >> import org.openqa.selenium.support.ui.Select;
 
-
+        Thread.sleep(3000);
         //3- Select options using 3 methods
         //3.1- SelectByIndex
-
-
+        selectdropdownmenue.selectByIndex(1);
+        Thread.sleep(3000);
         //3.2- SelectByValue
         //Note SelectByValue input value is String but SelectByIndex is Integer
-
-
+selectdropdownmenue.selectByValue("2");
+        Thread.sleep(3000);
         //3.3- SelectByVisibleText
-
-
+selectdropdownmenue.selectByVisibleText("Option 1");
+Thread.sleep(3000);
         driver.quit();
     }
 
