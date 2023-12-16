@@ -7,7 +7,7 @@ import org.openqa.selenium.support.Color;
 
 import java.time.Duration;
 
-public class Ggg {
+public class DetectingColors {
     public static void main(String[] args) {
         WebDriver driver;
 
