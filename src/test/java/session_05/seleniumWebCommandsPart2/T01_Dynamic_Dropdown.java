@@ -1,8 +1,11 @@
 package session_05.seleniumWebCommandsPart2;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
+import java.util.List;
 
 public class T01_Dynamic_Dropdown {
 
@@ -29,15 +32,15 @@ public class T01_Dynamic_Dropdown {
 
         // 4- Navigate to website
         driver.navigate().to("https://www.google.com/");
+        driver.findElement(By.id("APjFqb")).sendKeys("al zemalek");
+List<WebElement> dropDownMenue= (List<WebElement>) driver.findElements(By.cssSelector(" ul[role=\"listbox\"] li[role=\"presentation\"]"));
 
-
+dropDownMenue.get(2).click();
         //1- search on "selenium"
 
         // 2- dynamic dropdown list
         // We couldn't use Select class with dynamic lists, instead we could handle it with findElements() method
 
-
-        driver.quit();
 
     }
 }
