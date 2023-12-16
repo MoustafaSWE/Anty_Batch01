@@ -1,8 +1,10 @@
 package session_05.seleniumWebCommandsPart2;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
+import java.util.List;
 
 public class T01_Dynamic_Dropdown {
 
@@ -32,12 +34,13 @@ public class T01_Dynamic_Dropdown {
 
 
         //1- search on "selenium"
+        driver.findElement(By.name("q")).sendKeys("elzamail");
 
         // 2- dynamic dropdown list
         // We couldn't use Select class with dynamic lists, instead we could handle it with findElements() method
 
 
-        driver.quit();
+        //driver.quit();
 
     }
 }

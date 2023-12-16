@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class T03_JSAlert {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         WebDriver driver;
 
         driver = new ChromeDriver();
@@ -19,6 +19,27 @@ public class T03_JSAlert {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.navigate().to("https://the-internet.herokuapp.com/javascript_alerts");
+        Thread.sleep(2000);
+        driver.findElement(By.cssSelector("button[onclick='jsAlert()']")).click();
+        Thread.sleep(2000);
+        driver.switchTo().alert().accept();
+        driver.findElement(By.cssSelector("button[onclick='jsConfirm()']")).click();
+        Thread.sleep(2000);
+        driver.switchTo().alert().dismiss();
+        Thread.sleep(2000);
+        driver.findElement(By.cssSelector("button[onclick='jsPrompt()()']")).click();
+        Thread.sleep(2000);
+        driver.switchTo().alert().sendKeys("Hello");
+        Thread.sleep(2000);
+        driver.switchTo().alert().accept();
+        Thread.sleep(2000);
+
+
+
+
+
+
+
 
 
     }
