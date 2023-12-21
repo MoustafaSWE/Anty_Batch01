@@ -5,7 +5,7 @@ public class Assessment_03 {
     Test Case:
         1. Open URL: https://www.saucedemo.com/v1/
         2. Enter Valid username: standard_user
-        3. Enter Invalid password: secret_sauce
+        3. Enter valid password: secret_sauce
         4. Click on Login button
         5. Click on Add to cart button, for the first product
     Expected Result:
