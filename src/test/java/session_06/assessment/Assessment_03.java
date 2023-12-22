@@ -26,7 +26,7 @@ public class Assessment_03 {
         driver.navigate().to("https://www.saucedemo.com/v1/");
         driver.manage().window().maximize();
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
-        driver.findElement(By.id("password")).sendKeys("standard_user");
+        driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
         WebElement actualResult = driver.findElement(By.xpath("//button[@class=\"btn_primary btn_inventory\"][1]"));
         actualResult.click();
@@ -34,7 +34,7 @@ public class Assessment_03 {
         Assert.assertEquals(actualResult,"expectedResult");
         WebElement addednumber0 = driver.findElement(By.id("shopping_cart_container"));
         WebElement addedNewElement = driver.findElement(By.cssSelector("span[class=\"fa-layers-counter shopping_cart_badge\"]"));
-        Assert.assertEquals(addednumber0,"addedNewElement");
+        Assert.assertEquals("addednumber0","addedNewElement");
 
     }
 }
