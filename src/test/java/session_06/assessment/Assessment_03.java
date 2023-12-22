@@ -1,5 +1,14 @@
 package session_06.assessment;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+import java.time.Duration;
+
 public class Assessment_03 {
             /*
     Test Case:
@@ -15,6 +24,20 @@ public class Assessment_03 {
      */
 
     public static void main(String[] args) {
+        WebDriver driver;
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.navigate().to("https://www.saucedemo.com/v1/");
+        driver.findElement(By.id("user-name")).sendKeys("standard_user"+ Keys.TAB+"secret_sauce"+Keys.ENTER);
+        WebElement addToCart =  driver.findElement(By.xpath("//button[@class=\"btn_primary btn_inventory\"][1]"));
+        addToCart.click();
+        WebElement remove =  driver.findElement(By.xpath("//button[@class=\"btn_primary btn_inventory\"][1]"));
+        String text = remove.getText();
+        Assert.assertEquals(text,"REMOVE");
+        
+
+
 
     }
 }

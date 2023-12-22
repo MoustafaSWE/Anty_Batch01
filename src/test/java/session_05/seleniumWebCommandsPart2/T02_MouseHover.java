@@ -13,21 +13,14 @@ public class T02_MouseHover {
 //    Don't apply Thread.sleep -> it is for you to see the execution ; remove it once you learn the script's purpose
 
     public static void main(String[] args) {
-        WebDriver driver;
-
-        driver = new ChromeDriver();
-
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        driver.navigate().to("https://the-internet.herokuapp.com/hovers");
-
-        Actions actions = new Actions(driver);
-
-        WebElement imgNumber01 = driver
-                .findElement(By.xpath("(//div[@class=\"figure\"])[1]"));
-
-        actions.moveToElement(imgNumber01).perform();
+     WebDriver driver ;
+     driver = new ChromeDriver() ;
+     driver.manage().window().maximize();
+     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+     driver.navigate().to("https://the-internet.herokuapp.com/hovers");
+      Actions actions = new Actions(driver);
+      WebElement imgNumber01 = driver.findElement(By.xpath("//div[@class=\"figure\"][2]"));
+      actions.moveToElement(imgNumber01).perform();
 
 
 

@@ -1,5 +1,15 @@
 package session_06.assessment;
 
+import org.checkerframework.checker.units.qual.A;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.Color;
+import org.testng.Assert;
+
+import java.time.Duration;
+
 public class Assessment_01 {
 
     /*
@@ -15,6 +25,28 @@ public class Assessment_01 {
      */
 
     public static void main(String[] args) {
+        WebDriver driver;
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.navigate().to("https://www.saucedemo.com/v1/");
+/*       Assert.assertEquals("user-name","standard_user");
+        Assert.assertEquals("password","standard_user");
+
+ */
+        driver.findElement(By.id("user-name")).sendKeys("standard_user"+ Keys.TAB+"secret_sauce"+Keys.ENTER);
+
+       // driver.findElement(By.id("login-button")).click();
+        driver.findElement(By.className("radius")).click();
+        String errorMa=  driver.findElement(By.cssSelector("h3[data-test=\"error\"]")).getText();
+        Assert.assertTrue(errorMa.contains("user-name and password do not match "));
+        String rgbColor = driver.findElement(By.cssSelector("button[class=\"error-button\"]")).getCssValue("color");
+        String hexColor = Color.fromString(rgbColor).asHex();
+
+
+
+
+
 
     }
 }

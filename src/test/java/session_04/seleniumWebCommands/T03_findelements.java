@@ -22,7 +22,8 @@ public class T03_findelements {
 
         driver.navigate().to("https://www.saucedemo.com/v1/index.html");
 
-        driver.findElement(By.id("user-name")).sendKeys("standard_user" + Keys.TAB + "secret_sauce" + Keys.ENTER);
+       // driver.findElement(By.id("user-name")).sendKeys("standard_user" + Keys.TAB + "secret_sauce" + Keys.ENTER);
+        driver.findElement(By.id("user-name")).sendKeys("standard_user"+Keys.TAB+"secret_sauce"+Keys.ENTER);
 
         int numberOfAddToCart = driver.findElements(By.cssSelector("button[class=\"btn_primary btn_inventory\"]")).size();
 
