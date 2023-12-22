@@ -32,9 +32,8 @@ public class Assessment_01 {
         driver.navigate().to("https://www.cazoo.co.uk/");
 
         //  2. Wait and Click on Accept all Cookies  -- Use Explicit Wait
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class=\"cui__sc-mqi3p7-0 fuyLT\"]"))).click();
-
+              WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+              wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class=\"cui__sc-mqi3p7-0 fuyLT\"]"))).click();
         //  3. Choose make Audi
         Select selectFromDropDownMenuMake = new Select(driver.findElement(By.name("make")));
         selectFromDropDownMenuMake.selectByValue("audi");
@@ -45,29 +44,30 @@ public class Assessment_01 {
 
         // Click on Search Button
         driver.findElement(By
-                .xpath("(//button[@data-test-id=\"buy-form-btn\"])[1]"))
+                .xpath("//button[@data-test-id=\"buy-form-btn\"][1]"))
                 .click();
 
         // 5. Print all result fount
-        String expectedCarName = "Audi A1 1.4 TFSI S line Sportback S Tronic";
-        int numberOfElements = driver.findElements(By
+          // String expectedCarName = "Audi A1 1.4 TFSI S line Sportback S Tronic";
+            int numberOfElements = driver.findElements(By
                 .className("vehicle-cardstyles__MakeModelTrimWrapper-sc-1bxv5iu-12")).size();
-        for (int i = 0 ;i <numberOfElements ; i++){
+          for (int i = 0 ;i <numberOfElements ; i++){
             String carName = driver.findElements(By
                     .className("vehicle-cardstyles__MakeModelTrimWrapper-sc-1bxv5iu-12")).get(i).getText();
             System.out.println(carName);
         }
+        String expectedCarName = "Audi A1 1.4 TFSI S line Sportback S Tronic";
 
-      for (int i = 0 ;i <numberOfElements ; i++){
-            if (driver.findElements(By.className("vehicle-cardstyles__MakeModelTrimWrapper-sc-1bxv5iu-12"))
+         for (int i = 0 ;i <numberOfElements ; i++){
+              if (driver.findElements(By.className("vehicle-cardstyles__MakeModelTrimWrapper-sc-1bxv5iu-12"))
                     .get(i).getText().contains(expectedCarName))
-            {
+              {
                 driver.findElements(By.className("vehicle-cardstyles__MakeModelTrimWrapper-sc-1bxv5iu-12"))
                         .get(i).click();
                 break;
-            }
+              }
         }
         Thread.sleep(5000);
-        driver.quit();
+        //driver.quit();
     }
 }

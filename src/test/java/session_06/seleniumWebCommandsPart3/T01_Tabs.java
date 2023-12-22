@@ -1,9 +1,13 @@
 package session_06.seleniumWebCommandsPart3;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.lang.reflect.Array;
 import java.time.Duration;
+import java.util.ArrayList;
 
 public class T01_Tabs {
 
@@ -23,7 +27,28 @@ public class T01_Tabs {
 
 
         // 4- Navigate to website
-        driver.get("https://demo.nopcommerce.com/");
+        driver.navigate().to("https://demo.nopcommerce.com/");
+
+        //5- click on Twitter icon
+
+        By twitterIconLocator =  By.cssSelector("a[href=\"https://twitter.com/nopCommerce\"]");
+        // store tabs Array List
+        WebElement twitterIcon = driver.findElement(twitterIconLocator);
+        // click on Twitter icon
+        twitterIcon.click();
+        // store tabs Array List
+        ArrayList<String>  tabs = new ArrayList<>(driver.getWindowHandles());
+        // print tab number1
+        System.out.println(tabs.size());
+        // switch to tab number 2
+        driver.switchTo().window(tabs.get(1));
+        // print tab number 2
+        System.out.println(driver.getCurrentUrl());
+        driver.close();
+        driver.close();
+
+
+
 
 
     }

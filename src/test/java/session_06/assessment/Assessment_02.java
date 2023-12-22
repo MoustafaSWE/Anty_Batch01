@@ -1,5 +1,12 @@
 package session_06.assessment;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+import java.time.Duration;
+
 public class Assessment_02 {
 
         /*
@@ -14,6 +21,20 @@ public class Assessment_02 {
      */
 
     public static void main(String[] args) {
+        WebDriver driver ;
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.navigate().to("https://www.saucedemo.com/v1/");
+        driver.findElement(By.id("user-name")).sendKeys("standard_user");
+        driver.findElement(By.id("password")).sendKeys("secret_sauce");
+        driver.findElement(By.id("login-button")).click();
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://www.saucedemo.com/v1/inventory.html"));
+
+
+
+
+
 
     }
 

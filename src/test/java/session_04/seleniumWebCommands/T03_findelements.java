@@ -28,7 +28,6 @@ public class T03_findelements {
 
         System.out.println("Number of Add to cart buttons: " + numberOfAddToCart);
 
-
         driver.findElements(By.cssSelector("button[class=\"btn_primary btn_inventory\"]")).get(3).click();
 
         String productName = driver.findElements(By.className("inventory_item_name")).get(2).getText();

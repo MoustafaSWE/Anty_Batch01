@@ -1,5 +1,11 @@
 package session_06.assessment;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.Color;
+import org.testng.Assert;
+
 public class Assessment_01 {
 
     /*
@@ -15,6 +21,24 @@ public class Assessment_01 {
      */
 
     public static void main(String[] args) {
+        WebDriver driver ;
+        driver= new ChromeDriver();
+        driver.navigate().to("https://www.saucedemo.com/v1/");
+        driver.findElement(By.id("user-name")).sendKeys("standard_user");
+        driver.findElement(By.id("password")).sendKeys("standard_user");
+        driver.findElement(By.id("login-button")).click();
+        String actualText = driver.findElement(By.cssSelector("h3[data-test='error']")).getText();
+        Assert.assertTrue(actualText.contains("Username and password do not match any user in this service"));
+        String rgbColor = driver.findElement(By.cssSelector("button[class='error-button']")).getCssValue("color");
+        String hexColor = Color.fromString(rgbColor).asHex();
+        Assert.assertEquals(hexColor,"#ff0000");
+        Assert.assertFalse(driver.getCurrentUrl().equals("https://www.saucedemo.com/v1/inventory.html"));
+
+
+
+
+
+
 
     }
 }

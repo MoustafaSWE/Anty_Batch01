@@ -20,7 +20,6 @@ public class Assessment_01 {
 
     public static void main(String[] args) {
         WebDriver driver;
-
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -36,10 +35,12 @@ public class Assessment_01 {
 
         // 4. Click On Login
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-        wait.until(ExpectedConditions
-                .elementToBeClickable( driver
-                        .findElement(By.id("login-button"))))
-                .click();
+        wait.until(ExpectedConditions.elementToBeClickable(
+        driver.findElement(By.id("login-button"))))
+
+        //driver.findElement(By.id("login-button"))
+        .click();
+        driver.quit();
 
     }
 }

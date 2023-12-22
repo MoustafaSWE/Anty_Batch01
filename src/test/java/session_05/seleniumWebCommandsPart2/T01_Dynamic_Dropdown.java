@@ -38,6 +38,7 @@ public class T01_Dynamic_Dropdown {
         // We couldn't use Select class with dynamic lists, instead we could handle it with findElements() method
         List<WebElement> dropDownMenu = driver
                 .findElements(By.cssSelector("ul[role=\"listbox\"] li[role=\"presentation\"]"));
+        //ul//li[@class="sbct"]
 
         dropDownMenu.get(2).click();
 
