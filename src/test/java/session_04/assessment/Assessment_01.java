@@ -55,17 +55,19 @@ public class Assessment_01 {
         for (int i = 0 ;i <numberOfElements ; i++){
             String carName = driver.findElements(By
                     .className("vehicle-cardstyles__MakeModelTrimWrapper-sc-1bxv5iu-12")).get(i).getText();
-            System.out.println(carName);
         }
 
       for (int i = 0 ;i <numberOfElements ; i++){
             if (driver.findElements(By.className("vehicle-cardstyles__MakeModelTrimWrapper-sc-1bxv5iu-12"))
                     .get(i).getText().contains(expectedCarName))
+
             {
                 driver.findElements(By.className("vehicle-cardstyles__MakeModelTrimWrapper-sc-1bxv5iu-12"))
                         .get(i).click();
                 break;
             }
+          System.out.println(expectedCarName);
+
         }
         Thread.sleep(5000);
         driver.quit();

@@ -1,5 +1,10 @@
 package session_06.assessment;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
 public class Assessment_03 {
             /*
     Test Case:
@@ -15,6 +20,22 @@ public class Assessment_03 {
      */
 
     public static void main(String[] args) {
+        WebDriver driver;
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.navigate().to("https://www.saucedemo.com/v1/");
+        driver.findElement(By.id("user-name")).sendKeys("standard_user");
+
+        // 3. Enter Valid Password: secret
+        driver.findElement(By.id("password")).sendKeys("secret_sauce");
+        // 4. Click On Login
+        driver.findElement(By.id("login-button")).click();
+        driver.findElement(By.xpath("//*[@id=\"inventory_container\"]/div/div[1]/div[3]/button")).click();
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://www.saucedemo.com/v1/inventory.html"));
+
+
 
     }
 }
