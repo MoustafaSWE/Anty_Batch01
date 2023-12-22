@@ -28,7 +28,7 @@ public class Assessment_02 {
         driver.navigate().to("https://www.saucedemo.com/v1/");
 
         // 2. Enter Valid username: standard
-        driver.findElement(By.id("user-name")).sendKeys("standardr");
+        driver.findElement(By.id("user-name")).sendKeys("standard");
         // 3. Enter Valid Password: secret
         driver.findElement(By.id("password")).sendKeys("secret");
 
