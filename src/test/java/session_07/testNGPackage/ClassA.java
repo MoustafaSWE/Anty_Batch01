@@ -4,10 +4,7 @@ import org.testng.annotations.*;
 
 public class ClassA {
 
-    @BeforeClass
-    public void beforeClass() {
-        System.out.println("Before Class");
-    }
+
 
     @BeforeMethod
     public void beforeMethod (){
@@ -28,6 +25,9 @@ public class ClassA {
     public void afterClass (){
         System.out.println("After Class");
     }
-
+    @BeforeClass
+    public void beforeClass() {
+        System.out.println("Before Class");
+    }
 
 }

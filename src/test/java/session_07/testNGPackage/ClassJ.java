@@ -29,14 +29,14 @@ public class ClassJ {
         System.out.println("2. Open URL: swagLabs.com");
     }
 
-    @Test
+    @Test(priority = 2)
     public void test1 (){
         System.out.println("3. Enter Valid username");
         System.out.println("4. Enter Valid password");
         System.out.println("5. Click on Login");
     }
 
-    @Test
+    @Test(priority = 1, dependsOnMethods = "test1")
     public void test2 (){
         System.out.println("3. Enter Invalid username");
         System.out.println("4. Enter Invalid password");

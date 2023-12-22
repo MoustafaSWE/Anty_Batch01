@@ -1,5 +1,12 @@
 package session_07.assessment;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import java.time.Duration;
+
 /*
     Scenario 1 (Verify that user cannot log in with valid but not registered email)
         ● Go to https://www.amazon.eg/
@@ -27,5 +34,19 @@ package session_07.assessment;
         ● Make sure user can see the screen
  */
 public class Assessment_01 {
+    WebDriver driver;
+
+    @BeforeMethod
+    public void setUp (){
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.navigate().to("https://www.amazon.eg/");
+    }
+
+    @Test
+    public void test1 (){
+
+    }
 
 }

@@ -11,7 +11,12 @@ public class ClassB {
 
     @Test
     public void test (){
-        System.out.println("Test");
+        System.out.println("TC1");
+    }
+
+    @Test
+    public void test1 (){
+        System.out.println("TC2");
     }
 
     @AfterMethod
