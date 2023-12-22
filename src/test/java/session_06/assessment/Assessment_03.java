@@ -1,5 +1,11 @@
 package session_06.assessment;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
 public class Assessment_03 {
             /*
     Test Case:
@@ -15,6 +21,20 @@ public class Assessment_03 {
      */
 
     public static void main(String[] args) {
+        WebDriver driver;
+        driver = new ChromeDriver();
+        driver.navigate().to("https://www.saucedemo.com/v1/");
+        driver.manage().window().maximize();
+        driver.findElement(By.id("user-name")).sendKeys("standard_user");
+        driver.findElement(By.id("password")).sendKeys("standard_user");
+        driver.findElement(By.id("login-button")).click();
+        WebElement actualResult = driver.findElement(By.xpath("//button[@class=\"btn_primary btn_inventory\"][1]"));
+        actualResult.click();
+        WebElement expectedResult = driver.findElement(By.cssSelector("button[class=\"btn_secondary btn_inventory\"]"));
+        Assert.assertEquals(actualResult,"expectedResult");
+        WebElement addednumber0 = driver.findElement(By.id("shopping_cart_container"));
+        WebElement addedNewElement = driver.findElement(By.cssSelector("span[class=\"fa-layers-counter shopping_cart_badge\"]"));
+        Assert.assertEquals(addednumber0,"addedNewElement");
 
     }
 }
