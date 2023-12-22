@@ -1,5 +1,13 @@
 package session_06.assessment;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+import java.util.List;
+
 public class Assessment_02 {
 
         /*
@@ -14,6 +22,19 @@ public class Assessment_02 {
      */
 
     public static void main(String[] args) {
+        WebDriver driver;
+        driver = new ChromeDriver();
+        driver.navigate().to("https://www.saucedemo.com/v1/");
+        driver.manage().window().maximize();
+        driver.findElement(By.id("user-name")).sendKeys("standard_user");
+        driver.findElement(By.id("password")).sendKeys("standard_user");
+        driver.findElement(By.id("login-button")).click();
+        String currentUrl= driver.getCurrentUrl();
+        Assert.assertEquals(currentUrl,"https://www.saucedemo.com/v1/inventory.html");
+        List<WebElement> dollarSign = driver.findElements(By.cssSelector("//div[@class=\"inventory_item_price\"]"));
+
+
+
 
 
     }
