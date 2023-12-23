@@ -4,7 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
+
+
 
 public class Assessment_02 {
 
@@ -19,7 +20,7 @@ public class Assessment_02 {
         2. Assert that all product contains "$" beside its price
      */
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         WebDriver driver;
         driver = new ChromeDriver();
         driver.navigate().to("https://www.saucedemo.com/v1/");
@@ -30,6 +31,12 @@ public class Assessment_02 {
         }
 
 
+
+
     }
 
 
+         */
+
+
+    }

@@ -24,8 +24,7 @@ public class T02_MouseHover {
 
         Actions actions = new Actions(driver);
 
-        WebElement imgNumber01 = driver
-                .findElement(By.xpath("(//div[@class=\"figure\"])[1]"));
+        WebElement imgNumber01 = driver.findElement(By.xpath("(//div[@class=\"figure\"])[1]"));
 
         actions.moveToElement(imgNumber01).perform();
 

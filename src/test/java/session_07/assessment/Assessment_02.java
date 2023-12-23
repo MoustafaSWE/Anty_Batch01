@@ -43,7 +43,6 @@ public class Assessment_02 {
                 System.out.println(findWordInText.get(g).getText());
             }
             WebElement manual = driver.findElement(By.xpath("//span[@class=\"checkbox__icon\"][1]"));
-            boolean enabled = manual.isEnabled();
 
 
         }
