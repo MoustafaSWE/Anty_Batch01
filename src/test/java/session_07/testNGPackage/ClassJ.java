@@ -1,5 +1,9 @@
 package session_07.testNGPackage;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -23,29 +27,38 @@ TestCase 02:
  */
 public class ClassJ {
 
+    WebDriver driver;
+
     @BeforeMethod
     public void beforeMethod (){
-        System.out.println("1. Open Browser");
-        System.out.println("2. Open URL: swagLabs.com");
+        driver = new ChromeDriver();
+        driver.navigate().to("https://www.saucedemo.com/v1/");
     }
 
-    @Test
+    @Test(priority = 2)
     public void test1 (){
-        System.out.println("3. Enter Valid username");
-        System.out.println("4. Enter Valid password");
-        System.out.println("5. Click on Login");
+        WebElement login = driver.findElement(By.xpath("//input[@type=\"text\"]"));
+        login.sendKeys("standard_user");
+        WebElement pass = driver.findElement(By.xpath("//input[@type=\"password\"]"));
+        pass.sendKeys("secret_sauce");
+        WebElement loginButton = driver.findElement(By.xpath("//input[@type=\"submit\"]"));
+        loginButton.click();
     }
 
-    @Test
+    @Test(priority = 1, dependsOnMethods = "test1")
     public void test2 (){
-        System.out.println("3. Enter Invalid username");
-        System.out.println("4. Enter Invalid password");
-        System.out.println("5. Click on Login");
+        WebElement login = driver.findElement(By.xpath("//input[@type=\"text\"]"));
+        login.sendKeys("standrd_user");
+        WebElement pass = driver.findElement(By.xpath("//input[@type=\"password\"]"));
+        pass.sendKeys("secret_sce");
+        WebElement loginButton = driver.findElement(By.xpath("//input[@type=\"submit\"]"));
+        loginButton.click();
+
     }
 
     @AfterMethod
     public void afterMethod (){
-        System.out.println("6. Close Browser");
+        driver.quit();
     }
 
 }
