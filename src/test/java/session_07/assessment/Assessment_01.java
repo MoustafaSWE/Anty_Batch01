@@ -1,5 +1,13 @@
 package session_07.assessment;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import java.time.Duration;
+
 /*
     Scenario 1 (Verify that user cannot log in with valid but not registered email)
         ● Go to https://www.amazon.eg/
@@ -27,5 +35,32 @@ package session_07.assessment;
         ● Make sure user can see the screen
  */
 public class Assessment_01 {
+    WebDriver driver;
+
+    @BeforeClass
+
+    public void beforeClass() {
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.navigate().to("https://www.amazon.eg/");
+/*
+        System.out.println("1. Open Browser");
+        System.out.println("2. Open URL: swagLabs.com");
+
+ */
+    }
+
+    @Test
+    public void test1() {
+        driver.findElement(By.id("ap_email")).sendKeys("youmna@wageeh");
+        driver.findElement(By.id("login-button")).click();
+
+
+    }
+    @Test
+    public void test2 (){
+
+    }
 
 }
