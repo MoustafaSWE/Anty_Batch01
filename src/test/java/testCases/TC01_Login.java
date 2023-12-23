@@ -7,11 +7,14 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.P01_Login;
 
 import java.time.Duration;
 
 public class TC01_Login {
     WebDriver driver;
+    P01_Login login;
+
 
     @BeforeMethod
     public void setUp () {
@@ -19,6 +22,7 @@ public class TC01_Login {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.navigate().to("https://www.saucedemo.com/v1/");
+        login = new P01_Login(driver);
     }
 
     @AfterMethod
@@ -28,8 +32,8 @@ public class TC01_Login {
 
     @Test (priority = 1)
     public void validateThatUserCanLoginWithValidData (){
-        driver.findElement(By.id("user-name")).sendKeys("standard_user");
-        driver.findElement(By.id("password")).sendKeys("secret_sauce");
+        login.userEnterValidUserName("standard_user");
+        login.userEnterValidPassword("secret_sauce");
         driver.findElement(By.id("login-button")).click();
 
         Assert.assertFalse(driver.getCurrentUrl().equals("https://www.saucedemo.com/v1/"));
@@ -37,9 +41,9 @@ public class TC01_Login {
 
     @Test (priority = 1)
     public void validateThatUserCantLoginWithInvalidData (){
-        driver.findElement(By.id("user-name")).sendKeys("standard");
-        driver.findElement(By.id("password")).sendKeys("secret");
-        driver.findElement(By.id("login-button")).click();
+        login.userEnterValidUserName("standard");
+        login.userEnterValidUserName("secret");
+        login.valiLoginButton();
 
         Assert.assertTrue(driver.getCurrentUrl().equals("https://www.saucedemo.com/v1/"));
     }
