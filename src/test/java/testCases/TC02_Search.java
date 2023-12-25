@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.P01_SEARCH;
 
 import java.time.Duration;
 
@@ -22,26 +23,40 @@ import java.time.Duration;
  */
 public class TC02_Search {
     WebDriver driver;
-
+    P01_SEARCH search;
     @BeforeMethod
     public void setUp () {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.navigate().to("https://demo.nopcommerce.com/");
+        search=new P01_SEARCH(driver);
     }
 
-    @AfterMethod
-    public void tearDown (){
-        driver.quit();
-    }
+   // @AfterMethod
+    //public void tearDown (){
+       // driver.quit();
+    //}
 
     @Test
     public void ValidateThatPopupAppearsWhenUserClickOnSearchButtonWithoutInput (){
-        driver.findElement(By.cssSelector("button[class=\"button-1 search-box-button\"]")).click();
+        search.cansearch();
+        WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.alertIsPresent());
+        Assert.assertTrue((isallertexist()));
 
         // Write your code here using Page Object Model
 
+
     }
 
+    public boolean isallertexist(){
+        try{
+            driver.switchTo().alert();
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
 }
