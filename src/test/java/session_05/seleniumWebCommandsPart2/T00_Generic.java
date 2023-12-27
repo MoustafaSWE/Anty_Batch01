@@ -23,7 +23,7 @@ public class T00_Generic {
         driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
         driver.findElement(By.className("radius")).click();
 
-        String rgbColor = driver.findElement(By.id("flash")).getCssValue("background-color");
+        String rgbColor = driver.findElement(By.cssSelector("div[class=\"result\"]")).getCssValue("background-color");
         System.out.println(rgbColor);
 
         String hexColor = Color.fromString(rgbColor).asHex();
