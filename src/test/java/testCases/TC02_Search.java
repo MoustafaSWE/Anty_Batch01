@@ -39,9 +39,21 @@ public class TC02_Search {
     @Test
     public void ValidateThatPopupAppearsWhenUserClickOnSearchButtonWithoutInput (){
         driver.findElement(By.cssSelector("button[class=\"button-1 search-box-button\"]")).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.alertIsPresent());
 
-        // Write your code here using Page Object Model
-
+        Assert.assertTrue(isAlertPresent());
+        driver.switchTo().alert().accept();
+    }
+    public boolean isAlertPresent (){
+        try {
+            driver.switchTo().alert();
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
 }
